@@ -1,0 +1,31 @@
+{
+    "showFilterMenuTooltip": "Fintro",
+    "filterByTitle": "Filtra per",
+    "applyFilterButtonText": "Applica",
+    "cancelFilteringButtonText": "Cancella",
+    "removeAllFiltersButtonText": "Rimuovi",
+    "removeFilterButtonText": "Rimuovi questo filtro",
+    "refreshText": "Ricarica",
+    "refreshedAtText": "Ultimo aggiornamento alle {time}",
+    "@refreshedAtText": {
+        "placeholders": {
+            "time": {}
+        }
+    },
+    "rowsPagePageText": "Righe per pagina",
+    "pageIndicatorText": "Pagina {currentPage}",
+    "@pageIndicatorText": {
+        "placeholders": {
+            "currentPage": {}
+        }
+    },
+    "totalElementsText": "{totalElements} elementi mostrati",
+    "@totalElementsText": {
+        "placeholders": {
+            "totalElements": {}
+        }
+    },
+    "nextPageButtonText": "Pagina successiva",
+    "previousPageButtonText": "Pagina precedente",
+    "noItemsFoundText": "Nessun elemento trovato"
+}
