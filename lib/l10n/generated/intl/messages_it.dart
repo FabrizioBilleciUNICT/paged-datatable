@@ -48,7 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Rimuovi questo filtro"),
         "rowsPagePageText":
             MessageLookupByLibrary.simpleMessage("Righe per pagina"),
-        "showFilterMenuTooltip": MessageLookupByLibrary.simpleMessage("Fintro"),
+        "showFilterMenuTooltip": MessageLookupByLibrary.simpleMessage("Filtro"),
         "totalElementsText": m2
       };
 }
