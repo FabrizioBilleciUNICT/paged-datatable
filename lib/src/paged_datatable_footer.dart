@@ -21,7 +21,8 @@ class _PagedDataTableFooter<TKey extends Object, TResult extends Object>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   /* USER DEFINED CONTROLS */
-                  if (footer != null) footer! else const SizedBox.shrink(),
+                  //if (footer != null) footer! else
+                  const SizedBox.shrink(),
 
                   /* PAGINATION CONTROLS */
                   Row(
@@ -91,7 +92,7 @@ class _PagedDataTableFooter<TKey extends Object, TResult extends Object>
                         Text(localization
                             .totalElementsText(state.tableCache.currentLength))
                       else
-                        Text(localization.pageIndicatorText(
+                        footer ?? Text(localization.pageIndicatorText(
                             state.tableCache.currentPageIndex)),
                       Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12.0),
