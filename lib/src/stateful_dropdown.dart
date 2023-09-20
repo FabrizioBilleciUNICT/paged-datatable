@@ -4,7 +4,8 @@ class StatefulDropdown<T> extends StatefulWidget {
   final T? initialValue;
   final Function(T?)? onChanged;
   final List<DropdownMenuItem<T>>? items;
-  const StatefulDropdown({Key? key, this.initialValue, required this.onChanged, required this.items}) : super(key: key);
+  final Widget? hint;
+  const StatefulDropdown({Key? key, this.initialValue, required this.onChanged, required this.items, this.hint}) : super(key: key);
 
   @override
   State<StatefulDropdown> createState() => _StatefulDropdownState<T>();
@@ -23,6 +24,7 @@ class _StatefulDropdownState<T> extends State<StatefulDropdown> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 48,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
@@ -30,20 +32,25 @@ class _StatefulDropdownState<T> extends State<StatefulDropdown> {
             width: 1,
           ),
         ),
-        child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
-            child: DropdownButton<T>(
-                underline: const SizedBox(),
-                value: value,
-                style: const TextStyle(fontSize: 14),
-                onChanged: widget.onChanged == null ? null : (v) {
-                  setState(() {
-                    value = v;
-                  });
-                  widget.onChanged!(v);
-                },
-                items: (widget.items as List<DropdownMenuItem<T>>?)
-            )
+        child: Center(
+          child: DropdownButton<T>(
+              hint: widget.hint,
+              focusColor: Colors.transparent,
+              isDense: true,
+              isExpanded: true,
+              underline: const SizedBox(),
+              value: value,
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+              borderRadius: BorderRadius.circular(8),
+              style: const TextStyle(fontSize: 14),
+              onChanged: widget.onChanged == null ? null : (v) {
+                setState(() {
+                  value = v;
+                });
+                widget.onChanged!(v);
+              },
+              items: (widget.items as List<DropdownMenuItem<T>>?)
+          ),
         )
     );
   }
