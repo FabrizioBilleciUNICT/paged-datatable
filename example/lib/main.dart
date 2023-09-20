@@ -74,7 +74,7 @@ const kCustomPagedDataTableTheme = PagedDataTableThemeData(
         deleteIconColor: Colors.white),
     configuration: PagedDataTableConfiguration(
       allowRefresh: false,
-      pageSizes: null,
+      pageSizes: [10, 20, 45, 100],
     ));
 
 class _MainViewState extends State<MainView> {

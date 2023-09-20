@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:intl/intl.dart' hide TextDirection;
 import 'package:paged_datatable/l10n/generated/l10n.dart';
+import 'package:paged_datatable/src/stateful_dropdown.dart';
 import 'package:provider/provider.dart';
 import 'package:equatable/equatable.dart';
 
