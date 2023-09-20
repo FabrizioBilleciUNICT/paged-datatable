@@ -80,6 +80,7 @@ class DropdownTableFilter<TValue> extends TableFilter<TValue> {
   @override
   Widget buildPicker(BuildContext context, TableFilterState state) {
     return StatefulDropdown(
+        hint: Text(title),
         onChanged: (newValue) {
           state.value = newValue;
         },
