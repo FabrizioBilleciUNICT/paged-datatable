@@ -38,7 +38,8 @@ class PagedDataTable<TKey extends Object, TResult extends Object>
   final PagedDataTableController<TKey, TResult>? controller;
   final List<BaseTableColumn<TResult>> columns;
   final PagedDataTableFilterBarMenu? menu;
-  final Widget? footer, header;
+  final Widget Function(int)? footer;
+  final Widget? header;
   final ErrorBuilder? errorBuilder;
   final WidgetBuilder? noItemsFoundBuilder;
   final PagedDataTableThemeData? theme;

@@ -2,7 +2,7 @@ part of 'paged_datatable.dart';
 
 class _PagedDataTableFooter<TKey extends Object, TResult extends Object>
     extends StatelessWidget {
-  final Widget? footer;
+  final Widget Function(int)? footer;
 
   const _PagedDataTableFooter(this.footer);
 
@@ -92,7 +92,7 @@ class _PagedDataTableFooter<TKey extends Object, TResult extends Object>
                         Text(localization
                             .totalElementsText(state.tableCache.currentLength))
                       else
-                        footer ?? Text(localization.pageIndicatorText(
+                        footer != null ? footer!(state.tableCache.currentPageIndex) : Text(localization.pageIndicatorText(
                             state.tableCache.currentPageIndex)),
                       Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12.0),
