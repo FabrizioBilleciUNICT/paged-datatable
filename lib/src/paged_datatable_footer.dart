@@ -55,33 +55,17 @@ class _PagedDataTableFooter<TKey extends Object, TResult extends Object>
                             const SizedBox(width: 10),
                             ConstrainedBox(
                               constraints: const BoxConstraints(maxWidth: 100),
-                              child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
-                                    border: Border.all(
-                                      color: Colors.grey.withOpacity(0.2),
-                                      width: 1,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
-                                    child: DropdownButton<int>(
-                                    value: theme.configuration.initialPageSize,
-                                    style: const TextStyle(fontSize: 14),
-                                    onChanged:
-                                        state.tableState == _TableState.loading
-                                            ? null
-                                            : (newPageSize) {
-                                                if (newPageSize != null) {
-                                                  state.setPageSize(newPageSize);
-                                                }
-                                              },
-                                    items: theme.configuration.pageSizes!
-                                        .map((e) => DropdownMenuItem(
-                                            value: e, child: Text(e.toString())))
-                                        .toList()),
-                                  )
-                            ))
+                              child: StatefulDropdown(
+                                onChanged: state.tableState == _TableState.loading
+                                    ? null
+                                    : (newPageSize) {
+                                  if (newPageSize != null) {
+                                    state.setPageSize(newPageSize as int);
+                                  }
+                                },
+                                initialValue: theme.configuration.initialPageSize,
+                                items: theme.configuration.pageSizes!.map((e) => DropdownMenuItem(value: e, child: Text(e.toString()))).toList())
+                            ),
                           ],
                         ),
                         Padding(
