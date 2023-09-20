@@ -79,15 +79,25 @@ class DropdownTableFilter<TValue> extends TableFilter<TValue> {
 
   @override
   Widget buildPicker(BuildContext context, TableFilterState state) {
-    return DropdownButtonFormField<TValue>(
+    return Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+            color: Colors.grey.withOpacity(0.2),
+            width: 1,
+          ),
+        ),
+        child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+    child: DropdownButton<TValue>(
+      hint: Text(title),
       items: items,
       value: state.value,
-      onChanged: (newValue) {},
-      onSaved: (newValue) {
+      onChanged: (newValue) {
         state.value = newValue;
       },
-      decoration: decoration ?? InputDecoration(labelText: title),
-    );
+      //decoration: decoration ?? InputDecoration(labelText: title),
+    )));
   }
 }
 

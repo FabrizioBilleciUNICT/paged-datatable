@@ -150,11 +150,10 @@ class _DropdownButtonCell<TType extends Object, T extends Object>
     }, [item, initialValue]);
 
     return DropdownButtonHideUnderline(
-      child: DropdownButtonFormField<T>(
+      child: DropdownButton<T>(
         focusNode: focusNode,
         items: items,
-        decoration:
-            decoration ?? const InputDecoration(border: InputBorder.none),
+        //decoration: decoration ?? const InputDecoration(border: InputBorder.none),
         value: currentValueRef.value,
         onChanged: isLoadingN.value
             ? null
