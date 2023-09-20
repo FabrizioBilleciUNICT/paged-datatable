@@ -145,7 +145,7 @@ class _PagedDataTableState<TKey extends Object, TResult extends Object>
     _dispatchCallback(page: page);
   }
 
-  Future<void> _dispatchCallback({int page = 1, bool goNext = true}) async {
+  Future<void> _dispatchCallback({int page = 1, bool goNext = true, bool doNothing = false}) async {
     _state = _TableState.loading;
     _rowsChange++;
     _currentError = null;
@@ -173,6 +173,8 @@ class _PagedDataTableState<TKey extends Object, TResult extends Object>
       }
 
       if (goOnline) {
+        goNext = goNext && !doNothing;
+
         TKey lookupKey = goNext
             ? (tableCache.nextKey ?? tableCache.currentKey)
             : tableCache.currentKey;
@@ -188,16 +190,18 @@ class _PagedDataTableState<TKey extends Object, TResult extends Object>
 
         // store page in cache
         tableCache.cache[lookupKey] = pageIndicator;
-        tableCache.currentKey = goNext
-            ? (tableCache.nextKey ?? tableCache.currentKey)
-            : tableCache
-                .currentKey; // now currentKey is the nextKey of the previous fetch
-        if (goNext) {
-          tableCache.keys.add(tableCache.currentKey);
+        if (!doNothing) {
+          tableCache.currentKey = goNext
+              ? (tableCache.nextKey ?? tableCache.currentKey)
+              : tableCache
+              .currentKey; // now currentKey is the nextKey of the previous fetch
+          if (goNext) {
+            tableCache.keys.add(tableCache.currentKey);
+          }
+          tableCache.nextKey = pageIndicator.nextPageToken;
+          tableCache.currentPageIndex++;
+          debugPrint("Page $page fetched from source.");
         }
-        tableCache.nextKey = pageIndicator.nextPageToken;
-        tableCache.currentPageIndex++;
-        debugPrint("Page $page fetched from source.");
       }
 
       // change state and notify listeners of update
@@ -226,7 +230,7 @@ class _PagedDataTableState<TKey extends Object, TResult extends Object>
     }
   }
 
-  Future<void> _refresh({required bool currentDataset}) {
+  Future<void> _refresh({required bool currentDataset, bool doNothing = false}) {
     int page = 1;
     if (!currentDataset) {
       tableCache.emptyCache();
@@ -234,7 +238,7 @@ class _PagedDataTableState<TKey extends Object, TResult extends Object>
       page = tableCache.currentPageIndex;
     }
 
-    return _dispatchCallback(page: page, goNext: !currentDataset);
+    return _dispatchCallback(page: page, goNext: !currentDataset, doNothing: doNothing);
   }
 
   void _init() {
