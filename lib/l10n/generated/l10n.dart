@@ -101,6 +101,26 @@ class PagedDataTableLocalization {
     );
   }
 
+  /// `Save changes`
+  String get editableColumnSaveChangesButtonText {
+    return Intl.message(
+      'Save changes',
+      name: 'editableColumnSaveChangesButtonText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get editableColumnCancelButtonText {
+    return Intl.message(
+      'Cancel',
+      name: 'editableColumnCancelButtonText',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Remove this filter`
   String get removeFilterButtonText {
     return Intl.message(
@@ -132,10 +152,10 @@ class PagedDataTableLocalization {
   }
 
   /// `Rows per page`
-  String get rowsPagePageText {
+  String get rowsPerPageText {
     return Intl.message(
       'Rows per page',
-      name: 'rowsPagePageText',
+      name: 'rowsPerPageText',
       desc: '',
       args: [],
     );
@@ -199,6 +219,7 @@ class AppLocalizationDelegate
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'de'),
       Locale.fromSubtags(languageCode: 'es'),
       Locale.fromSubtags(languageCode: 'it'),
     ];
