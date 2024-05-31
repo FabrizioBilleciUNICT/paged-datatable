@@ -32,6 +32,8 @@ final class PagedDataTableController<K extends Comparable<K>, T> extends ChangeN
   SortModel? _currentSortModel; // The current sort model of the table
   _TableState _state = _TableState.idle;
 
+  int get currentPage => _currentPageIndex;
+
   /// A flag that indicates if the dataaset has a next page
   bool get hasNextPage => _hasNextPage;
 

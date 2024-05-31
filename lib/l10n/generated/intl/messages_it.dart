@@ -46,8 +46,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Rimuovi"),
         "removeFilterButtonText":
             MessageLookupByLibrary.simpleMessage("Rimuovi questo filtro"),
-        "rowsPagePageText":
-            MessageLookupByLibrary.simpleMessage("Righe per pagina"),
         "showFilterMenuTooltip": MessageLookupByLibrary.simpleMessage("Filtro"),
         "totalElementsText": m2
       };
