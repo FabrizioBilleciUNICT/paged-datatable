@@ -58,6 +58,9 @@ final class PagedDataTableThemeData {
   /// The [ChipThemeData] to apply to filter chips.
   final ChipThemeData? chipTheme;
 
+  /// The [BorderRadius] of the Filters.
+  final BorderRadius filtersBorderRadius;
+
   const PagedDataTableThemeData({
     this.cellPadding =
         const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
@@ -83,6 +86,7 @@ final class PagedDataTableThemeData {
     this.filterDialogBreakpoint = 1000.0,
     this.chipTheme,
     this.backgroundColor = Colors.white,
+    this.filtersBorderRadius = const BorderRadius.all(Radius.circular(16.0)),
   });
 
   @override
@@ -101,7 +105,9 @@ final class PagedDataTableThemeData {
       verticalScrollbarVisibility,
       horizontalScrollbarVisibility,
       chipTheme,
-      backgroundColor);
+      backgroundColor,
+      filtersBorderRadius
+  );
 
   @override
   bool operator ==(Object other) =>
@@ -123,7 +129,9 @@ final class PagedDataTableThemeData {
           other.horizontalScrollbarVisibility ==
               horizontalScrollbarVisibility &&
           other.chipTheme == chipTheme &&
-          other.backgroundColor == backgroundColor);
+          other.backgroundColor == backgroundColor &&
+          other.filtersBorderRadius == filtersBorderRadius
+      );
 }
 
 final class PagedDataTableTheme extends InheritedWidget {

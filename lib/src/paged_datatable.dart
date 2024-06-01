@@ -185,7 +185,7 @@ final class _PagedDataTableState<K extends Comparable<K>, T>
                 const Divider(height: 0, color: Color(0xFFD6D6D6)),
                 SizedBox(
                   height: theme.footerHeight,
-                  child: widget.footer ?? DefaultFooter<K, T>(),
+                  child: DefaultFooter<K, T>(child: widget.footer),
                 ),
               ],
             );
