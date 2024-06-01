@@ -121,6 +121,7 @@ class _FilterBarState<K extends Comparable<K>, T>
       TapDownDetails details, BuildContext context) {
     final mediaWidth = MediaQuery.of(context).size.width;
     final bool isBottomSheet = mediaWidth < theme.filterDialogBreakpoint;
+    final BorderRadius borderRadius = theme.filtersBorderRadius;
 
     if (isBottomSheet) {
       return showModalBottomSheet(
@@ -131,6 +132,7 @@ class _FilterBarState<K extends Comparable<K>, T>
           availableWidth: mediaWidth,
           rect: null,
           tableController: controller,
+          borderRadius: borderRadius
         ),
       );
     }
@@ -149,6 +151,7 @@ class _FilterBarState<K extends Comparable<K>, T>
         availableWidth: mediaWidth,
         rect: rect,
         tableController: controller,
+        borderRadius: borderRadius
       ),
     );
   }
@@ -169,11 +172,14 @@ class _FiltersDialog<K extends Comparable<K>, T> extends StatelessWidget {
   final RelativeRect? rect;
   final PagedDataTableController<K, T> tableController;
   final double availableWidth;
+  final BorderRadius borderRadius;
 
-  const _FiltersDialog(
-      {required this.rect,
-      required this.availableWidth,
-      required this.tableController});
+  const _FiltersDialog({
+    required this.rect,
+    required this.availableWidth,
+    required this.tableController,
+    required this.borderRadius
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -250,8 +256,7 @@ class _FiltersDialog<K extends Comparable<K>, T> extends StatelessWidget {
     }
 
     Widget child = Material(
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(28))),
+      shape: RoundedRectangleBorder(borderRadius: borderRadius),
       elevation: 0,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -272,10 +277,10 @@ class _FiltersDialog<K extends Comparable<K>, T> extends StatelessWidget {
             left: rect!.left,
             child: Container(
               width: availableWidth / 3,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: [BoxShadow(blurRadius: 3, color: Colors.black54)],
-                borderRadius: BorderRadius.all(Radius.circular(28)),
+                boxShadow: const [BoxShadow(blurRadius: 3, color: Colors.black54)],
+                borderRadius: borderRadius,
               ),
               child: child,
             ),
