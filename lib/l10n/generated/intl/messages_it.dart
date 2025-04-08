@@ -31,7 +31,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "applyFilterButtonText":
             MessageLookupByLibrary.simpleMessage("Applica"),
         "cancelFilteringButtonText":
-            MessageLookupByLibrary.simpleMessage("Cancella"),
+            MessageLookupByLibrary.simpleMessage("Annulla"),
+        "editableColumnCancelButtonText":
+            MessageLookupByLibrary.simpleMessage("Annulla"),
+        "editableColumnSaveChangesButtonText":
+            MessageLookupByLibrary.simpleMessage("Salva"),
         "filterByTitle": MessageLookupByLibrary.simpleMessage("Filtra per"),
         "nextPageButtonText":
             MessageLookupByLibrary.simpleMessage("Pagina successiva"),
@@ -40,15 +44,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "pageIndicatorText": m0,
         "previousPageButtonText":
             MessageLookupByLibrary.simpleMessage("Pagina precedente"),
-        "refreshText": MessageLookupByLibrary.simpleMessage("Ricarica"),
+        "refreshText": MessageLookupByLibrary.simpleMessage("Aggiorna"),
         "refreshedAtText": m1,
         "removeAllFiltersButtonText":
             MessageLookupByLibrary.simpleMessage("Rimuovi"),
         "removeFilterButtonText":
             MessageLookupByLibrary.simpleMessage("Rimuovi questo filtro"),
-        "rowsPagePageText":
+        "rowsPerPageText":
             MessageLookupByLibrary.simpleMessage("Righe per pagina"),
-        "showFilterMenuTooltip": MessageLookupByLibrary.simpleMessage("Fintro"),
+        "showFilterMenuTooltip": MessageLookupByLibrary.simpleMessage("Filtro"),
         "totalElementsText": m2
       };
 }
