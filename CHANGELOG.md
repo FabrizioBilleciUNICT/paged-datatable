@@ -1,3 +1,12 @@
+## 2.1.1
+
+- Fix Date- filters not showing `name` attribute as label in the text field.
+- Fix FractionalColumnSize does not calculate correctly sizes.
+
+## 2.1.0
+
+- Add Italian locale
+
 ## 2.0.1
 
 - Fix a bug in controller that does not reload dataset when applying a sort filter

@@ -2,16 +2,19 @@
     "showFilterMenuTooltip": "Filtro",
     "filterByTitle": "Filtra per",
     "applyFilterButtonText": "Applica",
-    "cancelFilteringButtonText": "Cancella",
+    "cancelFilteringButtonText": "Annulla",
     "removeAllFiltersButtonText": "Rimuovi",
+    "editableColumnSaveChangesButtonText": "Salva",
+    "editableColumnCancelButtonText": "Annulla",
+    "refreshText": "Aggiorna",
     "removeFilterButtonText": "Rimuovi questo filtro",
-    "refreshText": "Ricarica",
     "refreshedAtText": "Ultimo aggiornamento alle {time}",
     "@refreshedAtText": {
         "placeholders": {
             "time": {}
         }
     },
+    "rowsPerPageText": "Righe per pagina",
     "rowsPagePageText": "Righe per pagina",
     "pageIndicatorText": "Pagina {currentPage}",
     "@pageIndicatorText": {

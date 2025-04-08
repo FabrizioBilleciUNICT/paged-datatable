@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:paged_datatable/paged_datatable.dart';
 import 'package:paged_datatable_example/post.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,7 +30,12 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         PagedDataTableLocalization.delegate
       ],
-      supportedLocales: const [Locale("es"), Locale("en")],
+      supportedLocales: const [
+        Locale("es"),
+        Locale("en"),
+        Locale("de"),
+        Locale("it"),
+      ],
       locale: const Locale("en"),
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
@@ -105,6 +111,26 @@ class _MainViewState extends State<MainView> {
                       id: "authorGender",
                       name: "Author's Gender",
                     ),
+                    DateTimePickerTableFilter(
+                      id: "1",
+                      name: "Date picker",
+                      chipFormatter: (date) => "Date is $date",
+                      initialValue: DateTime.now(),
+                      firstDate:
+                          DateTime.now().subtract(const Duration(days: 30)),
+                      lastDate: DateTime.now(),
+                      dateFormat: DateFormat.yMd(),
+                    ),
+                    DateRangePickerTableFilter(
+                      id: "2",
+                      name: "DateRange picker",
+                      chipFormatter: (date) => "Date is $date",
+                      initialValue: null,
+                      firstDate:
+                          DateTime.now().subtract(const Duration(days: 30)),
+                      lastDate: DateTime.now(),
+                      formatter: (range) => "${range.start} - ${range.end}",
+                    ),
                   ],
                   filterBarChild: PopupMenuButton(
                     icon: const Icon(Icons.more_vert_outlined),
@@ -156,76 +182,6 @@ class _MainViewState extends State<MainView> {
                           final index =
                               Random().nextInt(tableController.totalItems);
                           tableController.removeRowAt(index);
-                        },
-                      ),
-                      PopupMenuItem(
-                        child: const Text("Replace first"),
-                        onTap: () {
-                          tableController.replace(
-                            0,
-                            Post(
-                              id: 999999,
-                              author: "Replaced",
-                              authorGender: Gender.male,
-                              content: "This row was replaced",
-                              createdAt: DateTime.now(),
-                              isEnabled: true,
-                              number: 12151502,
-                            ),
-                          );
-                        },
-                      ),
-                      PopupMenuItem(
-                        child: const Text("Insert first"),
-                        onTap: () {
-                          tableController.insertAt(
-                            0,
-                            Post(
-                              id: 2121,
-                              author: "Created",
-                              authorGender: Gender.male,
-                              content: "This row was inserted",
-                              createdAt: DateTime.now(),
-                              isEnabled: true,
-                              number: 12151502,
-                            ),
-                          );
-                        },
-                      ),
-                      PopupMenuItem(
-                        child: const Text("Insert last"),
-                        onTap: () {
-                          tableController.insert(
-                            Post(
-                              id: 999999,
-                              author: "Created",
-                              authorGender: Gender.male,
-                              content: "This row was inserted last",
-                              createdAt: DateTime.now(),
-                              isEnabled: true,
-                              number: 12151502,
-                            ),
-                          );
-                        },
-                      ),
-                      const PopupMenuDivider(),
-                      PopupMenuItem(
-                        child: const Text("Set filter"),
-                        onTap: () {
-                          tableController.setFilter(
-                              "authorGender", Gender.male);
-                        },
-                      ),
-                      PopupMenuItem(
-                        child: const Text("Remove filter"),
-                        onTap: () {
-                          tableController.removeFilter("authorGender");
-                        },
-                      ),
-                      PopupMenuItem(
-                        child: const Text("Clear filters"),
-                        onTap: () {
-                          tableController.removeFilters();
                         },
                       ),
                     ],
