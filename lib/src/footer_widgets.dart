@@ -79,7 +79,7 @@ class _PageSizeSelectorState<K extends Comparable<K>, T>
     return Row(
       children: [
         const SizedBox(width: 10),
-        Text(localizations.rowsPerPageText),
+        Text(localizations.rowsPerPageText, style: theme.footerTextStyle),
         const SizedBox(width: 10),
         SizedBox(
           width: 100,

@@ -56,7 +56,7 @@ class _FilterBarState<K extends Comparable<K>, T>
                                       ? null
                                       : (details) =>
                                           _showFilterOverlay(details, context),
-                              child: const Icon(Icons.filter_list_rounded),
+                              child: Icon(Icons.filter_list_rounded, color: theme.cellTextStyle.color),
                             ),
                           ),
                         ),
@@ -80,9 +80,10 @@ class _FilterBarState<K extends Comparable<K>, T>
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 4.0),
                                 child: Chip(
-                                  deleteIcon: const Icon(
+                                  deleteIcon: Icon(
                                     Icons.close,
                                     size: 20,
+                                    color: theme.cellTextStyle.color
                                   ),
                                   deleteButtonTooltipMessage:
                                       "Remove filter", //localizations.removeFilterButtonText,
