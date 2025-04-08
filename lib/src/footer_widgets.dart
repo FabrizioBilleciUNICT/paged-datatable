@@ -30,7 +30,7 @@ class _RefreshTableState<K extends Comparable<K>, T>
           splashRadius: 20,
           tooltip: localizations.refreshText,
           onPressed: () => controller.refresh(fromStart: false),
-          icon: const Icon(Icons.refresh_outlined),
+          icon: Icon(Icons.refresh_outlined, color: theme.cellTextStyle.color),
         ),
         const SizedBox(width: 10),
       ],
@@ -243,7 +243,8 @@ class _NavigationButtonsState<K extends Comparable<K>, T>
         IconButton(
           tooltip: localizations.previousPageButtonText,
           splashRadius: 20,
-          icon: const Icon(Icons.keyboard_arrow_left_rounded),
+          icon: Icon(Icons.keyboard_arrow_left_rounded, color: theme.cellTextStyle.color?.withValues(alpha: (controller.hasPreviousPage &&
+    controller._state != _TableState.fetching) ? 1 : 0.2)),
           onPressed: (controller.hasPreviousPage &&
                   controller._state != _TableState.fetching)
               ? controller.previousPage
@@ -253,7 +254,8 @@ class _NavigationButtonsState<K extends Comparable<K>, T>
         IconButton(
           tooltip: localizations.nextPageButtonText,
           splashRadius: 20,
-          icon: const Icon(Icons.keyboard_arrow_right_rounded),
+          icon: Icon(Icons.keyboard_arrow_right_rounded, color: theme.cellTextStyle.color?.withValues(alpha: (controller.hasNextPage &&
+              controller._state != _TableState.fetching) ? 1 : 0.2)),
           onPressed: (controller.hasNextPage &&
                   controller._state != _TableState.fetching)
               ? controller.nextPage

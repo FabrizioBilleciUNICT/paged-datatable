@@ -129,8 +129,8 @@ final class _HeaderState<K extends Comparable<K>, T>
             Flexible(child: child),
             IconButton(
               icon: sortModel!.descending
-                  ? const Icon(Icons.arrow_downward)
-                  : const Icon(Icons.arrow_upward),
+                  ? Icon(Icons.arrow_downward, color: theme.cellTextStyle.color)
+                  : Icon(Icons.arrow_upward, color: theme.cellTextStyle.color),
               onPressed: () {
                 widget.controller.swipeSortModel(column.id);
               },
