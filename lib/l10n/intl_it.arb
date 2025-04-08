@@ -6,8 +6,8 @@
     "removeAllFiltersButtonText": "Rimuovi",
     "editableColumnSaveChangesButtonText": "Salva",
     "editableColumnCancelButtonText": "Annulla",
-    "removeFilterButtonText": "Rimuovi filtro",
     "refreshText": "Aggiorna",
+    "removeFilterButtonText": "Rimuovi questo filtro",
     "refreshedAtText": "Ultimo aggiornamento alle {time}",
     "@refreshedAtText": {
         "placeholders": {
@@ -15,13 +15,14 @@
         }
     },
     "rowsPerPageText": "Righe per pagina",
+    "rowsPagePageText": "Righe per pagina",
     "pageIndicatorText": "Pagina {currentPage}",
     "@pageIndicatorText": {
         "placeholders": {
             "currentPage": {}
         }
     },
-    "totalElementsText": "Visualizzazione di {totalElements} elementi",
+    "totalElementsText": "{totalElements} elementi mostrati",
     "@totalElementsText": {
         "placeholders": {
             "totalElements": {}

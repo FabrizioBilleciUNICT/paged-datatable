@@ -24,19 +24,14 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(time) => "Ultimo aggiornamento alle ${time}";
 
-  static String m2(totalElements) =>
-      "Visualizzazione di ${totalElements} elementi";
+  static String m2(totalElements) => "${totalElements} elementi mostrati";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "applyFilterButtonText":
             MessageLookupByLibrary.simpleMessage("Applica"),
         "cancelFilteringButtonText":
-            MessageLookupByLibrary.simpleMessage("Annulla"),
-        "editableColumnCancelButtonText":
-            MessageLookupByLibrary.simpleMessage("Annulla"),
-        "editableColumnSaveChangesButtonText":
-            MessageLookupByLibrary.simpleMessage("Salva"),
+            MessageLookupByLibrary.simpleMessage("Cancella"),
         "filterByTitle": MessageLookupByLibrary.simpleMessage("Filtra per"),
         "nextPageButtonText":
             MessageLookupByLibrary.simpleMessage("Pagina successiva"),
@@ -45,15 +40,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "pageIndicatorText": m0,
         "previousPageButtonText":
             MessageLookupByLibrary.simpleMessage("Pagina precedente"),
-        "refreshText": MessageLookupByLibrary.simpleMessage("Aggiorna"),
+        "refreshText": MessageLookupByLibrary.simpleMessage("Ricarica"),
         "refreshedAtText": m1,
         "removeAllFiltersButtonText":
             MessageLookupByLibrary.simpleMessage("Rimuovi"),
         "removeFilterButtonText":
-            MessageLookupByLibrary.simpleMessage("Rimuovi filtro"),
-        "rowsPerPageText":
+            MessageLookupByLibrary.simpleMessage("Rimuovi questo filtro"),
+        "rowsPagePageText":
             MessageLookupByLibrary.simpleMessage("Righe per pagina"),
-        "showFilterMenuTooltip": MessageLookupByLibrary.simpleMessage("Filtro"),
+        "showFilterMenuTooltip": MessageLookupByLibrary.simpleMessage("Fintro"),
         "totalElementsText": m2
       };
 }
